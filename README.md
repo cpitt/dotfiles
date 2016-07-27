@@ -1,11 +1,13 @@
 # Cpitt's Dotfile
 
+Dotfiles managed using a bare git repository
+
 ## Installation:
 ```
 curl -Lks https://raw.githubusercontent.com/cpitt/dotfiles2/master/.dotfiles-install.sh | /bin/bash
 ```
 
-## Updateing dotfile
+## Updating dotfile
 
 ```
 config pull
