@@ -12,3 +12,9 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 config config status.showUntrackedFiles no
+
+# Get submodules
+config submodule update --init --recursive
+
+# Run install scripts
+sh ./.setup-scripts/bootstrap.sh
