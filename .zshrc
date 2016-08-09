@@ -95,4 +95,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export BROWSER=w3m
 
 alias vim=nvim
-alias config='/usr/bin/git --git-dir=/Users/pittc027/.dotfiles/ --work-tree=/Users/pittc027'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
