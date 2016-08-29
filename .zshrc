@@ -48,7 +48,7 @@ ZSH_THEME="muse"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails node brew npm rake osx rbenv sudo last-working-dir websearch autojump grunt knife docker)
+plugins=(git rails node brew npm rake osx rbenv sudo last-working-dir websearch autojump grunt knife docker, docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -68,12 +68,7 @@ export PATH=$PATH:$GOROOT/bin#
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -96,3 +91,7 @@ export BROWSER=w3m
 
 alias vim=nvim
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dc=docker-compose
+
+eval $(thefuck --alias)
+
