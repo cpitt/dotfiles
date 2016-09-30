@@ -48,7 +48,7 @@ ZSH_THEME="muse"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails node brew npm rake osx rbenv sudo last-working-dir websearch autojump grunt knife docker, docker-compose)
+plugins=(git rails node brew npm rake osx rbenv sudo last-working-dir websearch autojump grunt knife docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -77,8 +77,6 @@ export EDITOR='vim'
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 
 [[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
 
@@ -94,4 +92,32 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dc=docker-compose
 
 eval $(thefuck --alias)
+
+#NVM INIT
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+# Reattach or start tmux base session if no sessions exist
+# and not currently in tmux session
+if [ ! "$TERM" = "screen" ] && [ -z "$TMUX" ]; then
+  tmux attach -t base || tmux new -s base
+fi
+
+# source .secrets if it exists
+# .secrests contains keys and other sensitive data for command line utilities
+# that do not have alternative ways of storing secrets
+if [[ -f .secrets ]]; then
+  source .secrets
+fi
 
