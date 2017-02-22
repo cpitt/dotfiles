@@ -121,3 +121,5 @@ if [[ -f .secrets ]]; then
   source .secrets
 fi
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
