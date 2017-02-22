@@ -31281,10 +31281,20 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>18DAB04A-F357-4609-A0BB-6FF6773FA577</string>
+	<key>DimBackgroundWindows</key>
+	<true/>
 	<key>DimOnlyText</key>
+	<false/>
+	<key>DisableFullscreenTransparency</key>
 	<false/>
 	<key>DisableWindowSizeSnap</key>
 	<false/>
+	<key>HideMenuBarInFullscreen</key>
+	<true/>
+	<key>HideScrollbar</key>
+	<false/>
+	<key>HideTab</key>
+	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -31322,17 +31332,17 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>995 661 445 216 0 0 1440 877 </string>
+	<string>1235 799 445 94 0 0 1680 1027 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>519 326 606 456 0 0 1920 1177 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 589 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1054 436 796 473 0 0 1920 1200 </string>
+	<string>807 691 796 473 0 0 1920 1177 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>2075 593 592 584 1920 120 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>425 725 570 452 0 0 1920 1177 </string>
+	<string>0 25 955 1152 0 0 1920 1177 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -31895,7 +31905,7 @@
 				<real>0.023</real>
 			</dict>
 			<key>Minimum Contrast</key>
-			<real>0.0</real>
+			<real>0.271484375</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -31905,7 +31915,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraMonoForPowerline-Regular 12</string>
+			<string>FiraMonoForPowerline-Medium 12</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -32022,8 +32032,14 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-08-09T16:17:12Z</date>
+	<date>2016-11-18T02:16:55Z</date>
 	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>TabStyle</key>
+	<integer>1</integer>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1471382656</real>
+	<key>UseBorder</key>
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
@@ -32032,7 +32048,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.5</string>
+	<string>3.0.10</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
