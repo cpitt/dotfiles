@@ -45,6 +45,7 @@ brew 'neovim/neovim/neovim'
 brew 'rtv'
 brew 'grip'
 brew 'thefuck'
+brew 'fzf'
 
 cask 'font-fira-mono-for-powerline'
 cask 'google-chrome'
