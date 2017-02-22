@@ -87,8 +87,16 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export BROWSER=w3m
 
-alias vim=nvim
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias cco='config checkout'
+alias cst='config status'
+alias cl='config pull'
+alias ca='config add'
+alias cc='config commit -v'
+alias cc!='config commit -v --ammend'
+alias cp='config push'
+alias cdf='config diff'
+
 alias dc=docker-compose
 
 eval $(thefuck --alias)
@@ -115,11 +123,10 @@ if [ ! "$TERM" = "screen" ] && [ -z "$TMUX" ]; then
 fi
 
 # source .secrets if it exists
-# .secrests contains keys and other sensitive data for command line utilities
+# .secrets contains keys and other sensitive data for command line utilities
 # that do not have alternative ways of storing secrets
 if [[ -f .secrets ]]; then
   source .secrets
 fi
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
