@@ -2,6 +2,7 @@ UnBundle 'bling/vim-bufferline'
 UnBundle 'luochen1990/rainbow'
 UnBundle 'amirh/HTML-AutoCloseTag'
 
+Bundle 'mvolkmann/vim-react'
 Bundle 'isRuslan/vim-es6'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'burnettk/vim-angular'
