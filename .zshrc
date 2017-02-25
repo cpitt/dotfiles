@@ -88,14 +88,14 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export BROWSER=w3m
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias cco='config checkout'
-alias cst='config status'
-alias cl='config pull'
-alias ca='config add'
-alias cc='config commit -v'
-alias cc!='config commit -v --ammend'
-alias cp='config push'
-alias cdf='config diff'
+alias ccheckout='config checkout'
+alias cstatus='config status'
+alias cpull='config pull'
+alias cadd='config add'
+alias ccommit='config commit -v'
+alias ccommit!='config commit -v --ammend'
+alias cpush='config push'
+alias cdiff='config diff'
 
 alias dc=docker-compose
 
