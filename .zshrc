@@ -68,7 +68,7 @@ export PATH=$PATH:$GOROOT/bin#
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='nvim'
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -86,6 +86,8 @@ ulimit -n 2048
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export BROWSER=w3m
+
+alias vim=nvim
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ccheckout='config checkout'
