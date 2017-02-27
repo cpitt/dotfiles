@@ -45,15 +45,35 @@ ZSH_THEME="muse"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOQUIT=false
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails node brew npm rake osx rbenv sudo last-working-dir websearch autojump grunt knife docker docker-compose go golang postgres)
+plugins=(
+  autojump
+  brew
+  docker
+  docker-compose
+  git
+  gitignore
+  golang
+  node
+  npm
+  yarn
+  osx
+  pip
+  postgres
+  rbenv
+  sudo
+  thefuck
+  tmux
+  yarn
+  )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 export CLOSURE_PATH=$(brew --prefix closure-compiler)/libexec/
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -75,10 +95,6 @@ export EDITOR='vim'
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-
-[[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
 
 ulimit -n 2048
 
@@ -101,8 +117,6 @@ alias cdiff='config diff'
 
 alias dc=docker-compose
 
-eval $(thefuck --alias)
-
 #NVM INIT
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
@@ -118,11 +132,6 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-# Reattach or start tmux base session if no sessions exist
-# and not currently in tmux session
-if [ ! "$TERM" = "screen" ] && [ -z "$TMUX" ]; then
-  tmux attach -t base || tmux new -s base
-fi
 
 # source .secrets if it exists
 # .secrets contains keys and other sensitive data for command line utilities
