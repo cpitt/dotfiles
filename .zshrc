@@ -60,6 +60,7 @@ plugins=(
   golang
   node
   npm
+  nvm
   yarn
   osx
   pip
@@ -71,7 +72,6 @@ plugins=(
   yarn
   )
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
@@ -90,14 +90,9 @@ export PATH=$PATH:$GOROOT/bin#
 
 export EDITOR='vim'
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 ulimit -n 2048
 
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -115,23 +110,9 @@ alias ccommit!='config commit -v --ammend'
 alias cpush='config push'
 alias cdiff='config diff'
 
-alias dc=docker-compose
-
 #NVM INIT
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
 
 # source .secrets if it exists
 # .secrets contains keys and other sensitive data for command line utilities
@@ -139,5 +120,7 @@ load-nvmrc
 if [[ -f .secrets ]]; then
   source .secrets
 fi
+
+source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
