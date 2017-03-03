@@ -110,9 +110,9 @@ alias ccommit!='config commit -v --ammend'
 alias cpush='config push'
 alias cdiff='config diff'
 
-#NVM INIT
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# NVM INIT
+# export NVM_DIR=~/.nvm
+# source /usr/local/opt/nvm/nvm.sh
 
 # source .secrets if it exists
 # .secrets contains keys and other sensitive data for command line utilities
@@ -123,4 +123,26 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_CTRL_R_OPTS='--sort --exact'
