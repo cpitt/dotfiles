@@ -47,6 +47,7 @@ ZSH_THEME="muse"
 
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOQUIT=false
+#
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -65,7 +66,6 @@ plugins=(
   pip
   postgres
   rbenv
-  sudo
   thefuck
   tmux
   yarn
@@ -92,7 +92,6 @@ export EDITOR='vim'
 ulimit -n 2048
 
 fpath=(/usr/local/share/zsh-completions $fpath)
-
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export BROWSER=w3m
@@ -108,10 +107,6 @@ alias ccommit='config commit -v'
 alias ccommit!='config commit -v --ammend'
 alias cpush='config push'
 alias cdiff='config diff'
-
-# NVM INIT
-# export NVM_DIR=~/.nvm
-# source /usr/local/opt/nvm/nvm.sh
 
 # source .secrets if it exists
 # .secrets contains keys and other sensitive data for command line utilities
