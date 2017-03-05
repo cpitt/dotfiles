@@ -1,121 +1,50 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# Install zplug if it's doesn't exist
+[ -f $HOME/.dot-file-manager.sh ] && source $HOME/.dot-file-manager.sh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="muse"
-
-# Example aliases
- alias zshconfig="vim ~/.zshrc"
- alias ohmyzsh="vim ~/.oh-my-zsh"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+export ZPLUG_HOME=$HOME/.zplug
+if [ ! -d $ZPLUG_HOME ]; then
+  git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
+fi
 
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOQUIT=false
-#
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(
-  autojump
-  brew
-  docker
-  docker-compose
-  git
-  gitignore
-  golang
-  node
-  npm
-  yarn
-  osx
-  pip
-  postgres
-  rbenv
-  thefuck
-  tmux
-  yarn
-  )
+
+source $ZPLUG_HOME/init.zsh
+
+zplug "felixr/docker-zsh-completion"
+zplug "lib/directories", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh, defer:3
+zplug "lib/key-bindings", from:oh-my-zsh
+zplug "lib/theme-and-appearance", from:oh-my-zsh
+zplug "plugins/autojump", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/docker-compose", from:oh-my-zsh
+zplug "plugins/thefuck", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh
+zplug "mafredri/zsh-async," from:github
+zplug "sindresorhus/pure," use:pure.zsh, as:theme
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "zplug/zplug", hook-build:'zplug --self-manage'
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*darwin*amd64*" \
+    hook-build:'./install --key-bindings --completion --no-update-rc'
 
 
-# User configuration
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-export CLOSURE_PATH=$(brew --prefix closure-compiler)/libexec/
-export JAVA_HOME=$(/usr/libexec/java_home)
+zplug check || zplug install
+zplug load 
 
-export GOPATH=$HOME/golang
-export GOBIN=$GOPATH/bin
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin#
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-export EDITOR='vim'
-
-ulimit -n 2048
-
-fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-export BROWSER=w3m
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_CTRL_R_OPTS='--sort --exact'
 
 alias vim=nvim
-
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias ccheckout='config checkout'
-alias cstatus='config status'
-alias cpull='config pull'
-alias cadd='config add'
-alias ccommit='config commit -v'
-alias ccommit!='config commit -v --ammend'
-alias cpush='config push'
-alias cdiff='config diff'
 
 # source .secrets if it exists
 # .secrets contains keys and other sensitive data for command line utilities
 # that do not have alternative ways of storing secrets
-if [[ -f .secrets ]]; then
-  source .secrets
-fi
+[ -f ~/.secrets ] && source .secrets
 
-source $ZSH/oh-my-zsh.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_CTRL_R_OPTS='--sort --exact'
+ulimit -n 2048
