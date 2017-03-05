@@ -1,5 +1,6 @@
 # Install zplug if it's doesn't exist
-[ -f $HOME/.dot-file-manager.sh ] && source $HOME/.dot-file-manager.sh
+export DFM_PATH=$HOME/.dotfile-manager.sh
+[ -f $DFM_PATH ] && source $DFM_PATH
 
 export ZPLUG_HOME=$HOME/.zplug
 if [ ! -d $ZPLUG_HOME ]; then

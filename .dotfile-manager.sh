@@ -6,7 +6,7 @@ alias dfm="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
 
 function dfm_init {
   echo "Cloning dotfiles..."
-  git clone --bare https://github.com/cpitt/dotfiles2 $HOME/.dotfiles
+  git clone --bare https://github.com/cpitt/dotfiles $HOME/.dotfiles
 
   echo "Checking out config..."
   dfm checkout 2>&1

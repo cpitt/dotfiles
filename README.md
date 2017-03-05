@@ -6,7 +6,7 @@ Dotfiles managed using a bare git repository
 
 ## Installation:
 ```
-curl -Lks https://raw.githubusercontent.com/cpitt/dotfiles2/master/.dotfiles-install.sh | /bin/bash
+curl -Lks https://raw.githubusercontent.com/cpitt/dotfiles/master/.dotfile-manager.sh | /bin/bash
 ```
 
 ## Pulling dotfiles from repo
