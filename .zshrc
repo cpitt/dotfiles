@@ -22,30 +22,30 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "plugins/thefuck", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
-zplug "mafredri/zsh-async," from:github
-zplug "sindresorhus/pure," use:pure.zsh, as:theme
+zplug "mafredri/zsh-async", ignore:"*test.zsh"
+zplug "sindresorhus/pure", use:pure.zsh, as:theme
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
+zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin
 zplug "junegunn/fzf-bin", \
-    from:gh-r, \
-    as:command, \
-    rename-to:fzf, \
-    use:"*darwin*amd64*" \
-    hook-build:'./install --key-bindings --completion --no-update-rc'
+  from:gh-r, \
+  as:command, \
+  rename-to:fzf, \
+  use:"*darwin*amd64*"
 
 
 zplug check || zplug install
-zplug load 
+zplug load
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_CTRL_R_OPTS='--sort --exact'
 
+export EDITOR=vim
 alias vim=nvim
 
 # source .secrets if it exists
 # .secrets contains keys and other sensitive data for command line utilities
 # that do not have alternative ways of storing secrets
-[ -f ~/.secrets ] && source .secrets
+[ -f "$HOME/.secrets" ] && source .secrets
 
 ulimit -n 2048
