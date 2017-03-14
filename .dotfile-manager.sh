@@ -2,7 +2,7 @@
 
 # Dotfile Manager
 # Use bare git repo to manage your dotfiles
-alias dfm="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
+alias dfm="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
 
 function dfm_init {
   echo "Cloning dotfiles..."
