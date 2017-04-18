@@ -47,4 +47,10 @@ export FZF_CTRL_R_OPTS='--sort --exact'
 # that do not have alternative ways of storing secrets
 [ -f "$HOME/.secrets" ] && source $HOME/.secrets
 
+# Up the allowed open file descriptors
+# Useful for watchers in large projects
 ulimit -n 2048
+
+# Add yarn global binaries to path
+export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
+
