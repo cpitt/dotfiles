@@ -23,7 +23,8 @@ zplug "mafredri/zsh-async", ignore:"*test.zsh"
 zplug "plugins/autojump", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh, defer:3
 zplug "plugins/thefuck", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh, defer:3
+zplug "plugins/golang", from:oh-my-zsh
 zplug "plugins/yarn", from:oh-my-zsh, defer:3
 zplug "plugins/git", from:oh-my-zsh, defer:3
 zplug "sindresorhus/pure", use:pure.zsh, as:theme
@@ -52,5 +53,9 @@ export FZF_CTRL_R_OPTS='--sort --exact'
 ulimit -n 2048
 
 # Add yarn global binaries to path
-export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
+export PATH="$PATH:$(yarn global bin)"
 
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
