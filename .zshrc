@@ -23,7 +23,7 @@ zplug "mafredri/zsh-async", ignore:"*test.zsh"
 zplug "plugins/autojump", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh, defer:3
 zplug "plugins/thefuck", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh, defer:3
+zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/golang", from:oh-my-zsh
 zplug "plugins/yarn", from:oh-my-zsh, defer:3
 zplug "plugins/git", from:oh-my-zsh, defer:3
@@ -48,6 +48,11 @@ export FZF_CTRL_R_OPTS='--sort --exact'
 # that do not have alternative ways of storing secrets
 [ -f "$HOME/.secrets" ] && source $HOME/.secrets
 
+# add completion path to fpath
+fpath=(
+  /usr/local/share/zsh/site-functions
+  $fpath
+)
 # Up the allowed open file descriptors
 # Useful for watchers in large projects
 ulimit -n 2048
