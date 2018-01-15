@@ -27,6 +27,7 @@ zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/golang", from:oh-my-zsh
 zplug "plugins/yarn", from:oh-my-zsh, defer:3
 zplug "plugins/git", from:oh-my-zsh, defer:3
+zplug "plugins/ng", from:oh-my-zsh, defer:3
 zplug "sindresorhus/pure", use:pure.zsh, as:theme
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-completions", defer:2
