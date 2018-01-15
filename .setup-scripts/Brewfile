@@ -49,7 +49,7 @@ brew 'yarn'
 
 cask 'amethyst'
 cask 'bettertouchtool'
-cask 'docker'
+cask 'docker-edge'
 cask 'font-fira-mono-for-powerline'
 cask 'font-firamono-nerd-font'
 cask 'font-firacode-nerd-font'
