@@ -2,7 +2,6 @@
 export DFM_PATH=$HOME/.dotfile-manager.sh
 [ -f $DFM_PATH ] && source $DFM_PATH
 
-
 # Install zplug if it's doesn't exist
 export ZPLUG_HOME=$HOME/.zplug
 if [ ! -d $ZPLUG_HOME ]; then
@@ -25,6 +24,8 @@ zplug "plugins/docker-compose", from:oh-my-zsh, defer:3
 zplug "plugins/thefuck", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/golang", from:oh-my-zsh
+zplug "cpitt/zsh-dotenv", defer:3
+zplug "plugins/kubectl", from:oh-my-zsh, defer:3
 zplug "plugins/yarn", from:oh-my-zsh, defer:3
 zplug "plugins/git", from:oh-my-zsh, defer:3
 zplug "plugins/ng", from:oh-my-zsh, defer:3
@@ -58,10 +59,10 @@ fpath=(
 # Useful for watchers in large projects
 ulimit -n 2048
 
-# Add yarn global binaries to path
-export PATH="$PATH:$(yarn global bin)"
 
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /usr/local/etc/bash_completion.d/az
