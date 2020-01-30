@@ -63,6 +63,8 @@ ulimit -n 2048
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source /usr/local/etc/bash_completion.d/az
@@ -92,3 +94,4 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc "/usr/local/opt/nvm/nvm.sh"
+. "$HOME/alias.sh"
