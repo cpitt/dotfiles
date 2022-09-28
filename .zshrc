@@ -68,8 +68,6 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /usr/local/etc/bash_completion.d/az
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export NVM_DIR="$HOME/.nvm"
@@ -102,3 +100,9 @@ setopt INC_APPEND_HISTORY
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+
+
+# Work Around for open ssl
+# export NODE_OPTIONS=--openssl-legacy-provider
+
+HOMEBREW_BUNDLE_FILE="$HOME/Brewfile"
