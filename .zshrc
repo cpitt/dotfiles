@@ -30,16 +30,12 @@ zplug "plugins/yarn", from:oh-my-zsh, defer:3
 zplug "plugins/git", from:oh-my-zsh, defer:3
 zplug "plugins/ng", from:oh-my-zsh, defer:3
 zplug "sindresorhus/pure", use:pure.zsh, as:theme
+#zplug carloscuesta/materialshell, use:materialshell.zsh, from:github, as:theme
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin, defer:3
 zplug "chrisands/zsh-yarn-completions", defer:2
-zplug "junegunn/fzf-bin", \
-  from:gh-r, \
-  as:command, \
-  rename-to:fzf, \
-  use:"*darwin*amd64*"
 
 zplug check || zplug install 
 zplug load
@@ -97,7 +93,6 @@ load-nvmrc "/usr/local/opt/nvm/nvm.sh"
 # write history immediately
 setopt INC_APPEND_HISTORY
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
@@ -106,3 +101,6 @@ export PATH="/usr/local/sbin:$PATH"
 # export NODE_OPTIONS=--openssl-legacy-provider
 
 HOMEBREW_BUNDLE_FILE="$HOME/Brewfile"
+
+export EDITOR=nvim
+alias kill_md="launchctl unload /Library/LaunchAgents/com.microsoft.wdav.tray.plist"
