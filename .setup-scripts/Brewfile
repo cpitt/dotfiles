@@ -1,12 +1,3 @@
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'homebrew/bundle'
-tap 'homebrew/core'
-tap 'homebrew/services'
-tap 'aws/tap'
-
-
 brew 'autojump'
 brew 'automake'
 brew 'awscli'
@@ -90,7 +81,6 @@ cask 'bettertouchtool'
 cask "chatbox"
 cask 'font-fira-mono-for-powerline'
 cask 'font-fira-code-nerd-font'
-cask 'font-fira-code-nerd-font-mono'
 cask 'font-fira-mono-nerd-font'
 cask "github"
 cask 'google-chrome'
