@@ -13,34 +13,28 @@ export ZSH_TMUX_AUTOQUIT=false
 
 source $ZPLUG_HOME/init.zsh
 
-zplug "felixr/docker-zsh-completion", defer:3
+zplug "jeffreytse/zsh-vi-mode"
+zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin, defer:3
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh, defer:3
 zplug "lib/key-bindings", from:oh-my-zsh
-zplug "lib/theme-and-appearance", from:oh-my-zsh
-zplug "mafredri/zsh-async", ignore:"*test.zsh"
 zplug "plugins/autojump", from:oh-my-zsh
-zplug "plugins/docker-compose", from:oh-my-zsh, defer:3
+zplug "plugins/dotenv", from:oh-my-zsh
+zplug "plugins/fzf", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh, defer:2
+zplug "plugins/starship", from:oh-my-zsh
 zplug "plugins/thefuck", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/golang", from:oh-my-zsh
-zplug "cpitt/zsh-dotenv", defer:3
-zplug "plugins/kubectl", from:oh-my-zsh, defer:3
-zplug "plugins/yarn", from:oh-my-zsh, defer:3
-zplug "plugins/git", from:oh-my-zsh, defer:3
-zplug "plugins/ng", from:oh-my-zsh, defer:3
-zplug "sindresorhus/pure", use:pure.zsh, as:theme
-#zplug carloscuesta/materialshell, use:materialshell.zsh, from:github, as:theme
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-completions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
-zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin, defer:3
-zplug "chrisands/zsh-yarn-completions", defer:2
 
 zplug check || zplug install 
 zplug load
 
-export FZF_CTRL_R_OPTS='--sort --exact'
+export FZF_CTRL_R_OPTS='--tmux --sort --exact'
+source <(fzf --zsh)
+export ZSH_TMUX_AUTOSTART=true
 
 # Source .secrets if it exists
 # .secrets contains keys and other sensitive data for command line utilities
@@ -62,7 +56,6 @@ export PATH="$PATH:$GOPATH/bin"
 
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
