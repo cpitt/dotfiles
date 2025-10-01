@@ -1,22 +1,30 @@
 # Cpitt's Dotfile
 
-Dotfiles managed using a bare git repository
+My dotfiles managed using a bare git repository
 
+## Installation
 
+```sh
 
-## Installation:
-```
 curl -Lks https://raw.githubusercontent.com/cpitt/dotfiles/master/.dotfile-manager.sh | /bin/bash
 ```
 
 ## Pulling dotfiles from repo
-```
-config pull
+
+```sh
+dfm pull
 ```
 
 ## Adding/updating new/changed dotfiles
+
+```sh
+dfm add .newFile
+dfm commit -m 'adding .newFile'
+dfm push
 ```
-config add .newFile
-config commit -m 'adding .newFile'
-config push
+
+## Using Lazygit with dfm
+
+```sh
+dfml
 ```
