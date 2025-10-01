@@ -1,6 +1,34 @@
-# zmodload zsh/zprof
+#Setup and Execute Dotfile Manager
 export DFM_PATH=$HOME/.dotfile-manager.sh
 [ -f $DFM_PATH ] && source $DFM_PATH
+
+# Source .secrets if it exists
+# .secrets contains keys and other sensitive data for command line utilities
+# that do not have alternative ways of storing secrets
+[ -f "$HOME/.secrets" ] && source $HOME/.secrets
+
+
+#Auto start tmux when opening a terminal
+export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOQUIT=false
+
+# Configure FZF
+export FZF_CTRL_R_OPTS='--tmux --sort --exact'
+
+#Setup Path 
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+#Setup Brewfile location
+export HOMEBREW_BUNDLE_FILE="$HOME/Brewfile"
+
+#Set default editor
+export EDITOR=nvim
+
+# write history immediately so it can be shared between multiple sessions, useful when running tmux
+setopt INC_APPEND_HISTORY
 
 # Install zplug if it's doesn't exist
 export ZPLUG_HOME=$HOME/.zplug
@@ -9,7 +37,6 @@ if [ ! -d $ZPLUG_HOME ]; then
 fi
 
 source $ZPLUG_HOME/init.zsh
-
 
 # Core libraries and early environment
 zplug "lib/directories", from:oh-my-zsh
@@ -25,6 +52,7 @@ zplug "plugins/git", from:oh-my-zsh, defer:1
 zplug "plugins/starship", from:oh-my-zsh, defer:1
 zplug "plugins/docker-compose", from:oh-my-zsh, defer:1
 zplug "plugins/brew", from:oh-my-zsh, defer:1
+zplug "lukechilds/zsh-nvm", defer:1
 
 # Completions before compinit (no defer >=2)
 zplug "zsh-users/zsh-completions"
@@ -40,66 +68,6 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug check || zplug install 
 zplug load
 
-# Configure FZF
-export FZF_CTRL_R_OPTS='--tmux --sort --exact'
-
-#Auto start tmux when opening a terminal
-export ZSH_TMUX_AUTOSTART=true
-export ZSH_TMUX_AUTOQUIT=false
-
-# Source .secrets if it exists
-# .secrets contains keys and other sensitive data for command line utilities
-# that do not have alternative ways of storing secrets
-[ -f "$HOME/.secrets" ] && source $HOME/.secrets
-
-# Up the allowed open file descriptors
-# Useful for watchers in large projects
-ulimit -n 2048
-
-
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
-
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
-
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc "/usr/local/opt/nvm/nvm.sh"
-. "$HOME/alias.sh"
-# write history immediately
-setopt INC_APPEND_HISTORY
-
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
-
-# Work Around for open ssl
-# export NODE_OPTIONS=--openssl-legacy-provider
-
-HOMEBREW_BUNDLE_FILE="$HOME/Brewfile"
-
-export EDITOR=nvim
-
