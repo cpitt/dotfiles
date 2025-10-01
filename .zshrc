@@ -23,6 +23,8 @@ zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/autojump", from:oh-my-zsh, defer:1
 zplug "plugins/git", from:oh-my-zsh, defer:1
 zplug "plugins/starship", from:oh-my-zsh, defer:1
+zplug "plugins/docker-compose", from:oh-my-zsh, defer:1
+zplug "plugins/brew", from:oh-my-zsh, defer:1
 
 # Completions before compinit (no defer >=2)
 zplug "zsh-users/zsh-completions"
