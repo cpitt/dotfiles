@@ -6,6 +6,20 @@ dfm() {
   git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" "$@"
 }
 
+# lazygit alias for dfm
+dfml() {
+  if ! command -v lazygit &>/dev/null; then
+    echo "lazygit could not be found, please install it to use dfml"
+    return
+  fi
+  lazygit --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"
+}
+
+# Enable git completions for DFM
+autoload -Uz compinit
+compinit
+compdef dfm=git
+
 dfm_init() {
   echo "Cloning dotfiles..."
   git clone --bare https://github.com/cpitt/dotfiles "$HOME"/.dotfiles
