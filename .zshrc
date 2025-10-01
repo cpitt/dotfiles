@@ -8,44 +8,48 @@ if [ ! -d $ZPLUG_HOME ]; then
   git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
 fi
 
-export ZSH_TMUX_AUTOSTART=true
-export ZSH_TMUX_AUTOQUIT=false
-
 source $ZPLUG_HOME/init.zsh
 
-zplug "jeffreytse/zsh-vi-mode"
-zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin, defer:3
+
+# Core libraries and early environment
 zplug "lib/directories", from:oh-my-zsh
-zplug "lib/history", from:oh-my-zsh, defer:3
+zplug "lib/history", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
-zplug "plugins/autojump", from:oh-my-zsh
 zplug "plugins/dotenv", from:oh-my-zsh
-zplug "plugins/fzf", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh, defer:2
-zplug "plugins/starship", from:oh-my-zsh
-zplug "plugins/thefuck", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
-zplug "zsh-users/zsh-completions", defer:2
+
+# Early interactive tools
+zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/autojump", from:oh-my-zsh, defer:1
+zplug "plugins/git", from:oh-my-zsh, defer:1
+zplug "plugins/starship", from:oh-my-zsh, defer:1
+
+# Completions before compinit (no defer >=2)
+zplug "zsh-users/zsh-completions"
+
+# Deferred / heavier UI + helpers (load after compinit)
+zplug "plugins/thefuck", from:oh-my-zsh, defer:2
+# Use the source method for initializing key mapping so that it doesn't interfere with the FZF plugin. 
+ZVM_INIT_MODE=sourcing
+zplug "jeffreytse/zsh-vi-mode", defer:2
+zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin, defer:3
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
 zplug check || zplug install 
 zplug load
 
+# Configure FZF
 export FZF_CTRL_R_OPTS='--tmux --sort --exact'
-source <(fzf --zsh)
+
+#Auto start tmux when opening a terminal
 export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOQUIT=false
 
 # Source .secrets if it exists
 # .secrets contains keys and other sensitive data for command line utilities
 # that do not have alternative ways of storing secrets
 [ -f "$HOME/.secrets" ] && source $HOME/.secrets
 
-# add completion path to fpath
-fpath=(
-  /usr/local/share/zsh/site-functions
-  $fpath
-)
 # Up the allowed open file descriptors
 # Useful for watchers in large projects
 ulimit -n 2048
@@ -96,4 +100,4 @@ export PATH="/usr/local/sbin:$PATH"
 HOMEBREW_BUNDLE_FILE="$HOME/Brewfile"
 
 export EDITOR=nvim
-alias kill_md="launchctl unload /Library/LaunchAgents/com.microsoft.wdav.tray.plist"
+
