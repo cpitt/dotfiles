@@ -1,16 +1,17 @@
 return {
   "m4xshen/hardtime.nvim",
   lazy = false,
-  dependencies = { "MunifTanjim/nui.nvim" },
-  opts = {},
-  keys = {
-    {
-      "<leader>h",
-      function()
-        vim.cmd("Hardtime toggle")
-        vim.notify("Hardtime toggled!", vim.log.levels.INFO)
+  opts = function(_, opts)
+    local hardtime = require("hardtime")
+    Snacks.toggle({
+      name = "Hardtime",
+      get = function()
+        return hardtime.is_plugin_enabled
       end,
-      desc = "Toggle Hardtime",
-    },
-  },
+      set = function()
+        hardtime.toggle()
+      end,
+    }):map("<leader>H")
+    return opts
+  end,
 }
