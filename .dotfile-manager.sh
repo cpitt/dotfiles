@@ -20,6 +20,7 @@ autoload -Uz compinit
 compinit
 compdef dfm=git
 
+# Add helper function to initialize dotfiles
 dfm_init() {
   echo "Cloning dotfiles..."
   git clone --bare https://github.com/cpitt/dotfiles "$HOME"/.dotfiles
@@ -57,4 +58,5 @@ dfm_init() {
   fi
 }
 
+# Add check to see if dotfiles repo exists, if not run init
 [ ! -d "$HOME"/.dotfiles ] && dfm_init
