@@ -1,8 +1,0 @@
-[submodule ".tmux/plugins/tpm"]
-	path = .tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
-	branch = master
-[submodule ".cpitt-vim"]
-	path = .cpitt-vim
-	url = git@github.com:cpitt/cpitt-vim.git
-	branch = master
