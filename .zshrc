@@ -39,9 +39,11 @@ fi
 source $ZPLUG_HOME/init.zsh
 
 # Core libraries and early environment
+zplug "lib/theme-and-appearance", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
+zplug "/catppuccin/zsh-syntax-highlighting", as:theme, use:"themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" 
 zplug "lib/termsupport", from:oh-my-zsh
 zplug "plugins/dotenv", from:oh-my-zsh
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
