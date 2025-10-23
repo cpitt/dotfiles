@@ -12,6 +12,13 @@ return {
         hardtime.toggle()
       end,
     }):map("<leader>H")
+    opts.hardtime = {
+      disabled_filetypes = {
+        lazy = false,
+        ["snacks*"] = false,
+        ["dapui*"] = false,
+      },
+    }
     return opts
   end,
 }
