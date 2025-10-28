@@ -1,11 +1,12 @@
 return {
-  -- Catppuccin Theme is already included in LazyVim
-  -- {
-  --   "catppuccin/nvim",
-  --   lazy = false,
-  --   name = "catppuccin",
-  --   priority = 1000,
-  -- },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    name = "catppuccin",
+    opts = {
+      transparent_background = true,
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {
