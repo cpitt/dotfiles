@@ -7,6 +7,8 @@ export DFM_PATH=$HOME/.dotfile-manager.sh
 # that do not have alternative ways of storing secrets
 [ -f "$HOME/.secrets" ] && source $HOME/.secrets
 
+# Source Aliases if it exists
+[ -f "$HOME/.aliases.sh" ] && source $HOME/.aliases.sh
 
 #Auto start tmux when opening a terminal
 export ZSH_TMUX_AUTOSTART=true
@@ -44,7 +46,6 @@ zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "/catppuccin/zsh-syntax-highlighting", as:theme, use:"themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" 
-zplug "lib/termsupport", from:oh-my-zsh
 zplug "plugins/dotenv", from:oh-my-zsh
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
@@ -61,10 +62,9 @@ zplug "lukechilds/zsh-nvm", defer:1
 zplug "zsh-users/zsh-completions"
 
 # Deferred / heavier UI + helpers (load after compinit)
-zplug "plugins/thefuck", from:oh-my-zsh, defer:2
 # Use the source method for initializing key mapping so that it doesn't interfere with the FZF plugin. 
 ZVM_INIT_MODE=sourcing
-zplug "jeffreytse/zsh-vi-mode", defer:2
+zplug "jeffreytse/zsh-vi-mode", defer:3
 zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin, defer:3
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
@@ -74,3 +74,5 @@ zplug load
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+eval $(thefuck --alias)

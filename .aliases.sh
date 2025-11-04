@@ -21,3 +21,5 @@ makenote() {
   local file_name="${date_str}_${meeting_name}.md"
   nvim "$file_name"
 }
+
+alias f=fuck
