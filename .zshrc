@@ -15,7 +15,17 @@ export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOQUIT=false
 
 # Configure FZF
-export FZF_CTRL_R_OPTS='--tmux --sort --exact'
+export FZF_DEFAULT_OPTS='--tmux center --style full'
+
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
 #Setup Path 
 export GOPATH="$HOME/go"
