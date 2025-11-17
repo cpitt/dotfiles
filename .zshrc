@@ -73,7 +73,7 @@ zplug "zsh-users/zsh-completions"
 
 # Deferred / heavier UI + helpers (load after compinit)
 # Use the source method for initializing key mapping so that it doesn't interfere with the FZF plugin. 
-ZVM_INIT_MODE=sourcing
+export ZVM_INIT_MODE=sourcing
 zplug "jeffreytse/zsh-vi-mode", defer:3
 zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin, defer:3
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
