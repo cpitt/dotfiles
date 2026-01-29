@@ -12,7 +12,11 @@ export DFM_PATH=$HOME/.dotfile-manager.sh
 # Source .zshrc.local if it exists
 [ -f "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
 
-# Source Aliases if it exists
+# Source all config files in ~/.config/zsh/
+for file in ~/.config/zsh/*.zsh(N); do
+  source "$file"
+done
+
 
 ###############################################################
 #Setup Path 
@@ -32,8 +36,6 @@ export EDITOR=nvim
 # write history immediately so it can be shared between multiple sessions, useful when running tmux
 setopt INC_APPEND_HISTORY
 
-#Check if thefuck is installed and setup alias
-[ -x "$(command -v thefuck)" ] && eval $(thefuck --alias f)
 
 #################################################################
 # Setup plugin default variables
