@@ -2,6 +2,13 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
   "plugin": ["opencode-openai-codex-auth"],
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
+      "enabled": false,
+    },
+  },
   "experimental": {
     "disable_paste_summary": true,
   },
