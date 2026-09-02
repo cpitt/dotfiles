@@ -17,6 +17,6 @@ cask "github-copilot-app"
 # Open-source code editor
 cask "visual-studio-code"
 
+mas "Universal Print", id: 6450432292
 vscode "janisdd.vscode-edit-csv"
 vscode "ms-vsliveshare.vsliveshare"
-vscode "sst-dev.opencode"

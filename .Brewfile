@@ -239,4 +239,4 @@ cask "spotify"
 cask "vlc"
 # Voice to text app
 cask "voiceink"
-mas "Universal Print", id: 6450432292
+vscode "sst-dev.opencode"
