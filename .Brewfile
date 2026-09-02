@@ -1,5 +1,4 @@
 tap "anomalyco/tap"
-tap "colindean/fonts-nonfree", trusted: true
 tap "domt4/autoupdate", trusted: { commands: ["autoupdate"] }
 tap "oven-sh/bun"
 tap "plannotator/tap", trusted: true
@@ -34,8 +33,6 @@ brew "certbot"
 brew "cmake"
 # Linux virtual machines
 brew "lima"
-# Container runtimes on MacOS (and Linux) with minimal setup
-brew "colima", restart_service: :changed
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Reimplementation of ctags(1)
@@ -88,8 +85,6 @@ brew "hub"
 brew "perl"
 # Modular IRC client
 brew "irssi"
-# Feature-rich interactive Jira CLI
-brew "jira-cli"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # JSON parser and validator with a CLI
@@ -198,20 +193,15 @@ cask "chatgpt"
 cask "claude-code@latest"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
-# Brings the power of Copilot coding agent directly to your terminal
-cask "copilot-cli"
 # Offline voice-to-text dictation app with AI enhancement
 cask "fluidvoice"
 cask "font-fira-code-nerd-font"
 cask "font-fira-mono-for-powerline"
 cask "font-fira-mono-nerd-font"
-cask "colindean/fonts-nonfree/font-microsoft-aptos"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Desktop client for GitHub repositories
 cask "github"
-# Native client for GitHub Copilot
-cask "github-copilot-app"
 # Web browser
 cask "google-chrome"
 cask "graphiql"
@@ -245,13 +235,8 @@ cask "raycast"
 cask "slack"
 # Music streaming service
 cask "spotify"
-# Open-source code editor
-cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
 # Voice to text app
 cask "voiceink"
 mas "Universal Print", id: 6450432292
-vscode "janisdd.vscode-edit-csv"
-vscode "ms-vsliveshare.vsliveshare"
-vscode "sst-dev.opencode"
