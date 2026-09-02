@@ -15,10 +15,31 @@ dfml() {
   lazygit --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"
 }
 
-# Enable git completions for DFM
-autoload -Uz compinit
-compinit
-compdef dfm=git
+# Enable git completions for DFM once zsh completions are available.
+if [[ -n ${ZSH_VERSION:-} ]]; then
+  _dfm_register_completion() {
+    if (( $+functions[compdef] )); then
+      compdef dfm=git
+      if (( $+functions[add-zsh-hook] )); then
+        add-zsh-hook -d precmd _dfm_register_completion
+      fi
+      unfunction _dfm_register_completion
+    fi
+  }
+
+  if (( $+functions[compdef] )); then
+    _dfm_register_completion
+  else
+    for _dfm_fpath_dir in "${fpath[@]}"; do
+      if [[ -f "$_dfm_fpath_dir/add-zsh-hook" ]]; then
+        autoload -Uz add-zsh-hook
+        add-zsh-hook precmd _dfm_register_completion
+        break
+      fi
+    done
+    unset _dfm_fpath_dir
+  fi
+fi
 
 # Add helper function to initialize dotfiles
 dfm_init() {
