@@ -1,6 +1,14 @@
+# Avoid inheriting stale zsh function paths after Homebrew zsh upgrades.
+fpath=(
+  /opt/homebrew/share/zsh/site-functions
+  /opt/homebrew/opt/zsh/share/zsh/functions
+)
+export FPATH="${(j.:.)fpath}"
+
 ##############################################################
 #Setup and Execute Dotfile Manager
 ##############################################################
+
 export DFM_PATH=$HOME/.dotfile-manager.sh
 [ -f $DFM_PATH ] && source $DFM_PATH
 
@@ -21,10 +29,12 @@ done
 ###############################################################
 #Setup Path 
 ###############################################################
+
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 #Set default editor
 export EDITOR=nvim
@@ -73,7 +83,6 @@ zplug "lib/theme-and-appearance", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
-zplug "/catppuccin/zsh-syntax-highlighting", as:theme, use:"themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" 
 zplug "plugins/dotenv", from:oh-my-zsh
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
@@ -84,15 +93,15 @@ zplug "plugins/git", from:oh-my-zsh, defer:1
 zplug "plugins/starship", from:oh-my-zsh, defer:1
 zplug "plugins/docker-compose", from:oh-my-zsh, defer:1
 zplug "plugins/brew", from:oh-my-zsh, defer:1
-zplug "lukechilds/zsh-nvm", defer:1
 
 # Completions before compinit (no defer >=2)
 zplug "zsh-users/zsh-completions"
 
 # Deferred / heavier UI + helpers (load after compinit)
-zplug "jeffreytse/zsh-vi-mode", defer:3
+zplug "jeffreytse/zsh-vi-mode", defer:2
 zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin, defer:3
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
 zplug check || zplug install 
 zplug load
+
