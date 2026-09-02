@@ -44,3 +44,8 @@
 # resize-overlay-duration = 4s 200ms
 #
 theme = Catppuccin Mocha
+
+# Ghostty is launched from the Dock, whose cwd is "/", and the default
+# working-directory is "inherit" — which made new shells (and the tmux
+# session they autostart) begin in "/".
+working-directory = home
