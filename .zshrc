@@ -67,41 +67,14 @@ export FZF_CTRL_T_OPTS="
 
 
 #############################################################
-# Install Zplug and Plugins
+# Install Antidote Plugins
 #############################################################
 
-# Install zplug if it's doesn't exist
-export ZPLUG_HOME=$HOME/.zplug
-if [ ! -d $ZPLUG_HOME ]; then
-  git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
-fi
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 
-source $ZPLUG_HOME/init.zsh
+# Homebrew supplies the additional completion definitions in $fpath. Initialize
+# completion before loading Oh My Zsh plugins that call compdef.
+autoload -Uz compinit
+compinit
 
-# Core libraries and early environment
-zplug "lib/theme-and-appearance", from:oh-my-zsh
-zplug "lib/directories", from:oh-my-zsh
-zplug "lib/history", from:oh-my-zsh
-zplug "lib/key-bindings", from:oh-my-zsh
-zplug "plugins/dotenv", from:oh-my-zsh
-zplug "zplug/zplug", hook-build:'zplug --self-manage'
-
-# Early interactive tools
-zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/autojump", from:oh-my-zsh, defer:1
-zplug "plugins/git", from:oh-my-zsh, defer:1
-zplug "plugins/starship", from:oh-my-zsh, defer:1
-zplug "plugins/docker-compose", from:oh-my-zsh, defer:1
-zplug "plugins/brew", from:oh-my-zsh, defer:1
-
-# Completions before compinit (no defer >=2)
-zplug "zsh-users/zsh-completions"
-
-# Deferred / heavier UI + helpers (load after compinit)
-zplug "jeffreytse/zsh-vi-mode", defer:2
-zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin, defer:3
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
-
-zplug check || zplug install 
-zplug load
-
+antidote load "$HOME/.zsh_plugins.txt"

@@ -167,8 +167,8 @@ brew "watchman"
 brew "whisper-cpp"
 # JavaScript package manager
 brew "yarn"
-# Next-generation plugin manager for zsh
-brew "zplug"
+# High-performance Zsh plugin manager
+brew "antidote"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Additional completion definitions for zsh
