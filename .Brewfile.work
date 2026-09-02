@@ -1,0 +1,4 @@
+# .NET Core
+brew "dotnet"
+# Command-line shell and scripting language
+brew "powershell"

@@ -15,5 +15,5 @@ function setup_brew {
 	fi
 
 	echo "Running brew bundle"
-	brew bundle
+	brew bundle install --global
 }

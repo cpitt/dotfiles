@@ -26,10 +26,6 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-
-#Setup Brewfile location
-export HOMEBREW_BUNDLE_FILE="$HOME/Brewfile"
-
 #Set default editor
 export EDITOR=nvim
 
