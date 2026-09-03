@@ -1,0 +1,63 @@
+onboarding = false
+[keys]
+# Use Ctrl+A as the leader key.
+prefix = "ctrl+a"
+# Switch tabs 1–9 in the current workspace.
+switch_tab = "prefix+1..9"
+# Switch workspaces 1–9.
+switch_workspace = "prefix+shift+1..9"
+# Match tmux-pain-control: side-by-side and stacked splits.
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+# Match tmux copy mode.
+edit_scrollback = "prefix+["
+# Match tmux detach.
+detach = "prefix+d"
+
+[ui]
+# Match tmux mouse support and tmux-yank's copy-on-selection behavior.
+mouse_capture = true
+copy_on_select = true
+agent_panel_sort = "priority"
+
+show_agent_labels_on_pane_borders = true
+[experimental]
+# Pi sends Kitty graphics when its outer terminal is Ghostty. Herdr must render
+# those placements itself rather than leaving Pi's reserved image rows blank.
+kitty_graphics = true
+
+[ui.toast]
+delivery = "terminal"
+
+# --- herdr-annotate (full install) ---
+# Terminal annotations
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "annotate.capture"
+description = "annotate text"
+
+[[keys.command]]
+key = "prefix+shift+a"
+type = "plugin_action"
+command = "annotate.copy-context"
+description = "copy annotations as context"
+
+[[keys.command]]
+key = "prefix+m"
+type = "plugin_action"
+command = "annotate.manage"
+description = "manage annotations"
+
+# Document review (plannotator-tui)
+[[keys.command]]
+key = "prefix+o"
+type = "plugin_action"
+command = "annotate.open"
+description = "review documents in this folder"
+
+[[keys.command]]
+key = "prefix+shift+o"
+type = "plugin_action"
+command = "annotate.last"
+description = "review the agent's last reply"

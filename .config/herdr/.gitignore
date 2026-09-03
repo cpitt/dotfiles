@@ -1,0 +1,4 @@
+# Herdr runtime state and installed plugin checkouts are machine-local.
+*
+!.gitignore
+!config.toml
