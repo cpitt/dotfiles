@@ -1,0 +1,28 @@
+# Credentials and private data
+/agent/auth.json
+/agent/mcp-oauth/
+/agent/sessions/
+
+# Installed and generated packages
+/agent/npm/
+/agent/git/
+
+# Caches
+/web-search-cache/
+/agent/*-cache.json
+
+# Generated provider/model metadata
+/agent/models-store.json
+
+# Machine-specific and transient state
+/agent/trust.json
+/agent/*-state.json
+/agent/*-changelog.json
+/agent/mcp-onboarding.json
+
+# Common temporary output
+/agent/logs/
+/agent/tmp/
+*.log
+*.tmp
+*.bak

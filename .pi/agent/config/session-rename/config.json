@@ -1,0 +1,16 @@
+{
+  "primary": {
+    "model": "github-copilot/gpt-5.6-luna",
+    "thinkingLevel": "low"
+  },
+  "backups": [
+    {
+      "model": "claude-bridge/claude-haiku-4-5",
+      "thinkingLevel": "low"
+    }
+  ],
+  "maxContextChars": 6000,
+  "maxOutputTokens": 64,
+  "maxNameWords": 6,
+  "maxNameChars": 60
+}
