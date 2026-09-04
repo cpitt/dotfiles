@@ -1,0 +1,18 @@
+# Oh My Zsh libraries and plugins
+ohmyzsh/ohmyzsh path:lib/theme-and-appearance.zsh
+ohmyzsh/ohmyzsh path:lib/directories.zsh
+ohmyzsh/ohmyzsh path:lib/history.zsh
+ohmyzsh/ohmyzsh path:lib/key-bindings.zsh
+ohmyzsh/ohmyzsh path:plugins/dotenv
+ohmyzsh/ohmyzsh path:plugins/tmux
+ohmyzsh/ohmyzsh path:plugins/autojump
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/starship
+ohmyzsh/ohmyzsh path:plugins/docker-compose
+ohmyzsh/ohmyzsh path:plugins/brew
+
+# Interactive UI plugins. Keep fzf after zsh-vi-mode so its bindings win, and
+# syntax highlighting last as recommended by the plugin.
+jeffreytse/zsh-vi-mode
+junegunn/fzf path:shell
+zsh-users/zsh-syntax-highlighting
