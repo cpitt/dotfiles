@@ -1,3 +1,6 @@
+# Configure Oh My Zsh for use through Antidote. This must load first.
+getantidote/use-omz
+
 # Oh My Zsh libraries and plugins
 ohmyzsh/ohmyzsh path:lib/theme-and-appearance.zsh
 ohmyzsh/ohmyzsh path:lib/directories.zsh

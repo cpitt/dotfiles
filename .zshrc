@@ -72,9 +72,4 @@ export FZF_CTRL_T_OPTS="
 
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 
-# Homebrew supplies the additional completion definitions in $fpath. Initialize
-# completion before loading Oh My Zsh plugins that call compdef.
-autoload -Uz compinit
-compinit
-
 antidote load "$HOME/.zsh_plugins.txt"
