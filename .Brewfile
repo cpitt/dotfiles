@@ -240,3 +240,5 @@ cask "vlc"
 # Voice to text app
 cask "voiceink"
 vscode "sst-dev.opencode"
+# CLI for Git worktree management, designed for parallel AI agent workflows
+brew "worktrunk"
