@@ -179,8 +179,6 @@ brew "anomalyco/tap/opencode", trusted: true
 brew "oven-sh/bun/bun", trusted: true
 # Annotate Markdown in the terminal and send the review to your agent
 brew "plannotator/tap/plannotator-tui", trusted: true
-# Opinionated workflow tool that orchestrates git worktrees and tmux
-brew "raine/workmux/workmux", trusted: true
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
 # Tool to customise input devices and automate computer systems
@@ -242,3 +240,5 @@ cask "voiceink"
 vscode "sst-dev.opencode"
 # CLI for Git worktree management, designed for parallel AI agent workflows
 brew "worktrunk"
+# Load/unload environment variables based on $PWD
+brew "direnv"
