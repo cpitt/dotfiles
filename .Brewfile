@@ -242,3 +242,5 @@ vscode "sst-dev.opencode"
 brew "worktrunk"
 # Load/unload environment variables based on $PWD
 brew "direnv"
+# Code review TUI with vim keybindings
+brew "tuicr"
