@@ -1,2 +1,3 @@
 .dotfiles
 .zsh_plugins.zsh
+.zshrc.local

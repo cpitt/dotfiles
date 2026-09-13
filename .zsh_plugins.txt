@@ -13,8 +13,9 @@ ohmyzsh/ohmyzsh path:plugins/starship
 ohmyzsh/ohmyzsh path:plugins/docker-compose
 ohmyzsh/ohmyzsh path:plugins/brew
 
-# Interactive UI plugins. Keep fzf after zsh-vi-mode so its bindings win, and
-# syntax highlighting last as recommended by the plugin.
+# Completion and interactive UI plugins. Keep fzf after zsh-vi-mode so its
+# bindings win, and syntax highlighting last as recommended by the plugin.
+zsh-users/zsh-completions
 jeffreytse/zsh-vi-mode
 junegunn/fzf path:shell
 zsh-users/zsh-syntax-highlighting

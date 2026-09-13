@@ -18,7 +18,7 @@ export DFM_PATH=$HOME/.dotfile-manager.sh
 [ -f "$HOME/.secrets" ] && source $HOME/.secrets
 
 # Source .zshrc.local if it exists
-[ -f "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
 # Source all config files in ~/.config/zsh/
 for file in ~/.config/zsh/*.zsh(N); do
