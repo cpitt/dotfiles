@@ -11,6 +11,14 @@
     "npm:@howaboua/pi-codex-conversion",
     "npm:pi-claude-bridge"
   ],
+  "extensions": [
+    "../../shared/extensions/compact-tool-calls.ts",
+    "../../shared/extensions/herdr-agent-state.ts",
+    "../../shared/extensions/inline-skill-completion.ts",
+    "../../shared/extensions/session-rename.ts"
+  ],
+  "skills": ["../../shared/skills"],
+  "themes": ["../../shared/themes"],
   "theme": "catppuccin-tui-mocha",
   "enabledModels": [
     "github-copilot/claude-opus-5",

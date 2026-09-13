@@ -1,0 +1,16 @@
+{
+  "executionMode": "code",
+  "prompt": {
+    "heavySystemPromptOverwrite": true
+  },
+  "compaction": {
+    "responsesCompaction": true
+  },
+  "ui": {
+    "toolRenaming": true,
+    "compactTools": true
+  },
+  "openai": {
+    "proxyResponsesLite": true
+  }
+}

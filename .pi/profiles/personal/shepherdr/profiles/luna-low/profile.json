@@ -1,0 +1,8 @@
+{
+	"description": "Read-only lightweight testing",
+	"model": "openai-codex/gpt-5.6-luna",
+	"thinking": "low",
+	"prompt": "prompt.md",
+	"accepts": [],
+	"pi_args": []
+}

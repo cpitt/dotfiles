@@ -1,28 +1,34 @@
+# Legacy single-profile directory retained temporarily for rollback/runtime state.
+/agent/
+
 # Credentials and private data
-/agent/auth.json
-/agent/mcp-oauth/
-/agent/sessions/
+/profiles/*/auth.json
+/profiles/*/mcp-oauth/
+/profiles/*/sessions/
 
 # Installed and generated packages
-/agent/npm/
-/agent/git/
+/profiles/*/npm/
+/profiles/*/git/
 
 # Caches
 /web-search-cache/
-/agent/*-cache.json
+/profiles/*/cache/
+/profiles/*/*-cache.json
 
 # Generated provider/model metadata
-/agent/models-store.json
+/profiles/*/models-store.json
 
 # Machine-specific and transient state
-/agent/trust.json
-/agent/*-state.json
-/agent/*-changelog.json
-/agent/mcp-onboarding.json
+/profiles/*/trust.json
+/profiles/*/*-state.json
+/profiles/*/*-changelog.json
+/profiles/*/mcp-onboarding.json
+/profiles/*/extensions/herdr-agent-state.ts
+/profiles/*/shepherdr/.profiles-initialized
 
 # Common temporary output
-/agent/logs/
-/agent/tmp/
+/profiles/*/logs/
+/profiles/*/tmp/
 *.log
 *.tmp
 *.bak
