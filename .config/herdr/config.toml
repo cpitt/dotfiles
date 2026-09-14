@@ -6,6 +6,8 @@ prefix = "ctrl+a"
 switch_tab = "prefix+1..9"
 # Switch workspaces 1–9.
 switch_workspace = "prefix+shift+1..9"
+# Focus agents 1–9 with Prefix, then Alt+number.
+focus_agent = "prefix+alt+1..9"
 # Match tmux-pain-control: side-by-side and stacked splits.
 split_vertical = "prefix+|"
 split_horizontal = "prefix+minus"
@@ -21,13 +23,20 @@ copy_on_select = true
 agent_panel_sort = "priority"
 
 show_agent_labels_on_pane_borders = true
+status_indicators = "symbols"
 [experimental]
 # Pi sends Kitty graphics when its outer terminal is Ghostty. Herdr must render
 # those placements itself rather than leaving Pi's reserved image rows blank.
 kitty_graphics = true
 
 [ui.toast]
-delivery = "terminal"
+delivery = "system"
+
+[ui.sidebar.agents]
+rows = [
+  ["state_icon", "terminal_title_stripped"],
+  ["workspace", "tab"],
+]
 
 # --- herdr-annotate (full install) ---
 # Terminal annotations
@@ -42,6 +51,12 @@ key = "prefix+shift+a"
 type = "plugin_action"
 command = "annotate.copy-context"
 description = "copy annotations as context"
+
+[[keys.command]]
+key = "prefix+ctrl+shift+a"
+type = "plugin_action"
+command = "annotate.copy-archive"
+description = "copy annotations as context and archive them"
 
 [[keys.command]]
 key = "prefix+m"
@@ -61,3 +76,10 @@ key = "prefix+shift+o"
 type = "plugin_action"
 command = "annotate.last"
 description = "review the agent's last reply"
+
+# Open Herdr Navigator.
+[[keys.command]]
+key = "prefix+t"
+type = "plugin_action"
+command = "herdr-navigator.open"
+description = "jump to anything"
